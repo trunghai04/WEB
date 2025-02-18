@@ -1,0 +1,42 @@
+.sidebar .nav-link{
+    padding: 20px;
+    display: block;
+    color: black;
+}
+
+.sidebar {
+    height: 90vh; /* Giữ chiều cao hợp lý */
+    overflow-y: auto; /* Cho phép cuộn */
+    padding: 10px;
+    border-right: 1px solid #ddd;
+    position: sticky;
+    top: 70px; /* Đảm bảo không bị tràn khi cuộn trang */
+}
+
+
+.nav-link:hover{
+    background-color: chocolate;
+    border-radius: 5px;
+}
+.nav-item:hover{
+    background-color: rgb(182, 157, 148);
+    border-radius: 5px;
+
+}
+.logo-img {
+    position: relative;
+    right: 25px; /* Dịch sang phải 20px */
+}
+.nav-link {
+    display: flex;
+    align-items: center;
+    padding-left: 30px; /* Để có khoảng cách cho icon */
+    position: relative;
+}
+
+.card-img-top {
+    width: 100px; /* Điều chỉnh kích thước theo mong muốn */
+    height: auto; /* Giữ tỷ lệ ảnh */
+}
+
+
