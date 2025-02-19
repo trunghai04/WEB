@@ -1,388 +1,188 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="vi">
-    <head>
-        <title>Danh Sách Sản Phẩm</title>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <link rel="stylesheet" href="./css/style.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh Sách Sản Phẩm</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
 
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    </head>
+        body {
+            display: flex;
+            flex-direction: column;
+            background-color: #f8f9fa;
+        }
 
-    <body>
-        <!-- Header -->
-        <header class="bg-primary py-2">
-            <div class="container d-flex justify-content-between align-items-center">
-                <nav>
-                    <ul class="nav">
-                        <li class="nav-item"><a href="index.html" class="nav-link text-white">Trang Chủ</a></li>
-                        <li class="nav-item"><a href="thongbao.html" class="nav-link text-white">Thông Báo</a></li>
-                        <li class="nav-item"><a href="danhsachsanpham.html" class="nav-link text-white">Sản Phẩm</a></li>
-                        <li class="nav-item"><a href="dangnhap.html" class="nav-link text-white">Đăng Nhập</a></li>
-                        <li class="nav-item"><a href="dangky.html" class="nav-link text-white">Đăng Ký</a></li>
-                    </ul>
-                </nav>
+        .navbar-custom {
+            background-color: #007bff !important;
+        }
+
+        .sidebar {
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            height: 100vh;
+            position: sticky;
+            top: 0;
+        }
+
+        .sidebar .nav-link {
+            color: #333;
+            font-weight: 500;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar .nav-link:hover {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-text {
+            color: #6c757d;
+        }
+
+        .badge {
+            font-size: 0.9rem;
+        }
+
+        footer {
+            background-color: #343a40;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: auto; /* Đảm bảo footer luôn ở dưới cùng */
+        }
+
+        .main-content {
+            flex: 1; /* Phần nội dung chính sẽ chiếm phần còn lại của trang */
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="navbar-custom navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">ShopABC</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Trang Chủ</a></li>
+                    <li class="nav-item"><a href="thongbao.html" class="nav-link">Thông Báo</a></li>
+                    <li class="nav-item"><a href="danhsachsanpham.html" class="nav-link active">Sản Phẩm</a></li>
+                    <li class="nav-item"><a href="dangnhap.html" class="nav-link">Đăng Nhập</a></li>
+                    <li class="nav-item"><a href="dangky.html" class="nav-link">Đăng Ký</a></li>
+                </ul>
                 <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Tìm kiếm..." aria-label="Search">
+                    <input class="form-control me-2" type="search" placeholder="Tìm kiếm...">
                     <button class="btn btn-light" type="submit">Tìm</button>
                 </form>
             </div>
-        </header>
+        </div>
+    </header>
 
-        <!-- Main -->
-        <main class="container-fluid mt-3">
-    <div class="row">
-        <!-- Sidebar danh mục (Bên trái) -->
-        <div class="col-2 sidebar">
-            <ul class="navbar-nav">
-                <li class="nav-item"><a href="nha-sach-tiki.html" class="nav-link">Nhà Sách Tiki</a></li>
-        <li class="nav-item"><a href="nha-cua-doi-song.html" class="nav-link">Nhà Cửa - Đời Sống</a></li>
-        <li class="nav-item"><a href="dien-thoai-may-tinh-bang.html" class="nav-link">Điện Thoại - Máy Tính Bảng</a></li>
-        <li class="nav-item"><a href="do-choi-me-va-be.html" class="nav-link">Đồ Chơi - Mẹ và Bé</a></li>
-        <li class="nav-item"><a href="thiet-bi-so-phu-kien-so.html" class="nav-link">Thiết Bị Số - Phụ Kiện Số</a></li>
-        <li class="nav-item"><a href="dien-gia-dung.html" class="nav-link">Điện Gia Dụng</a></li>
-        <li class="nav-item"><a href="lam-dep-suc-khoe.html" class="nav-link">Làm Đẹp - Sức Khỏe</a></li>
-        <li class="nav-item"><a href="o-to-xe-may-xe-dap.html" class="nav-link">Ô Tô - Xe Máy - Xe Đạp</a></li>
-        <li class="nav-item"><a href="thoi-trang-nu.html" class="nav-link">Thời Trang Nữ</a></li>
-        <li class="nav-item"><a href="bach-hoa-online.html" class="nav-link">Bách Hóa Online</a></li>
-        <li class="nav-item"><a href="the-thao-da-ngoai.html" class="nav-link">Thể Thao - Dã Ngoại</a></li>
-        <li class="nav-item"><a href="thoi-trang-nam.html" class="nav-link">Thời Trang Nam</a></li>
-        <li class="nav-item"><a href="hang-quoc-te.html" class="nav-link">Hàng Quốc Tế</a></li>
-        <li class="nav-item"><a href="laptop-may-tinh-linh-kien.html" class="nav-link">Laptop - Máy Tính -Linh Kiện</a></li>
-        <li class="nav-item"><a href="giay-dep-nam.html" class="nav-link">Giày - Dép Nam</a></li>
-        <li class="nav-item"><a href="dien-tu-dien-lanh.html" class="nav-link">Điện Tử - Điện Lạnh</a></li>
-        <li class="nav-item"><a href="giay-dep-nu.html" class="nav-link">Giày - Dép Nữ</a></li>
-        <li class="nav-item"><a href="may-anh-may-quay-phim.html" class="nav-link">Máy Ảnh - Máy Quay Phim</a></li>
-        <li class="nav-item"><a href="phu-kien-thoi-trang.html" class="nav-link">Phụ Kiện Thời Trang</a></li>
-        <li class="nav-item"><a href="dong-ho-trang-suc.html" class="nav-link">Đồng Hồ - Trang Sức</a></li>
-        <li class="nav-item"><a href="balo-vali.html" class="nav-link">Balo - Vali</a></li>
-        <li class="nav-item"><a href="tui-thoi-trang-nu.html" class="nav-link">Túi Thời Trang Nữ</a></li>
-        <li class="nav-item"><a href="tui-thoi-trang-nam.html" class="nav-link">Túi Thời Trang Nam</a></li>
-        <li class="nav-item"><a href="cham-soc-nha-cua.html" class="nav-link">Chăm Sóc Nhà Cửa</a></li>
-        <li class="nav-item"><a href="cham-soc-vat-nuoi.html" class="nav-link">Chăm Sóc Vật Nuôi</a></li>
-        <li class="nav-item"><a href="voucher-va-dich-vu.html" class="nav-link">Voucher và Dịch Vụ</a></li>
+    <!-- Main Content -->
+    <main class="container-fluid mt-4 main-content">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-lg-2 sidebar">
+                <ul class="nav flex-column">
+                    <li class="nav-item"><a href="nha-sach-tiki.html" class="nav-link">Nhà Sách Tiki</a></li>
+                    <li class="nav-item"><a href="nha-cua-doi-song.html" class="nav-link">Nhà Cửa - Đời Sống</a></li>
+                    <li class="nav-item"><a href="dien-thoai-may-tinh-bang.html" class="nav-link">Điện Thoại - Máy Tính Bảng</a></li>
+                    <li class="nav-item"><a href="do-choi-me-va-be.html" class="nav-link">Đồ Chơi - Mẹ và Bé</a></li>
+                    <li class="nav-item"><a href="thiet-bi-so-phu-kien-so.html" class="nav-link">Thiết Bị Số - Phụ Kiện Số</a></li>
+                    <li class="nav-item"><a href="dien-gia-dung.html" class="nav-link">Điện Gia Dụng</a></li>
+                    <li class="nav-item"><a href="lam-dep-suc-khoe.html" class="nav-link">Làm Đẹp - Sức Khỏe</a></li>
+                    <li class="nav-item"><a href="o-to-xe-may-xe-dap.html" class="nav-link">Ô Tô - Xe Máy - Xe Đạp</a></li>
+                    <li class="nav-item"><a href="thoi-trang-nu.html" class="nav-link">Thời Trang Nữ</a></li>
+                    <li class="nav-item"><a href="bach-hoa-online.html" class="nav-link">Bách Hóa Online</a></li>
+                    <li class="nav-item"><a href="the-thao-da-ngoai.html" class="nav-link">Thể Thao - Dã Ngoại</a></li>
+                    <li class="nav-item"><a href="thoi-trang-nam.html" class="nav-link">Thời Trang Nam</a></li>
+                    <li class="nav-item"><a href="hang-quoc-te.html" class="nav-link">Hàng Quốc Tế</a></li>
+                    <li class="nav-item"><a href="laptop-may-tinh-linh-kien.html" class="nav-link">Laptop - Máy Tính - Linh Kiện</a></li>
+                    <li class="nav-item"><a href="giay-dep-nam.html" class="nav-link">Giày - Dép Nam</a></li>
+                    <li class="nav-item"><a href="dien-tu-dien-lanh.html" class="nav-link">Điện Tử - Điện Lạnh</a></li>
+                    <li class="nav-item"><a href="giay-dep-nu.html" class="nav-link">Giày - Dép Nữ</a></li>
+                    <li class="nav-item"><a href="may-anh-may-quay-phim.html" class="nav-link">Máy Ảnh - Máy Quay Phim</a></li>
+                    <li class="nav-item"><a href="phu-kien-thoi-trang.html" class="nav-link">Phụ Kiện Thời Trang</a></li>
+                    <li class="nav-item"><a href="dong-ho-trang-suc.html" class="nav-link">Đồng Hồ - Trang Sức</a></li>
+                    <li class="nav-item"><a href="balo-vali.html" class="nav-link">Balo - Vali</a></li>
+                    <li class="nav-item"><a href="tui-thoi-trang-nu.html" class="nav-link">Túi Thời Trang Nữ</a></li>
+                    <li class="nav-item"><a href="tui-thoi-trang-nam.html" class="nav-link">Túi Thời Trang Nam</a></li>
+                    <li class="nav-item"><a href="cham-soc-nha-cua.html" class="nav-link">Chăm Sóc Nhà Cửa</a></li>
+                    <li class="nav-item"><a href="cham-soc-vat-nuoi.html" class="nav-link">Chăm Sóc Vật Nuôi</a></li>
+                    <li class="nav-item"><a href="voucher-va-dich-vu.html" class="nav-link">Voucher và Dịch Vụ</a></li>
+                </ul>
+            </div>
+
+            <!-- Product List -->
+            <section class="col-lg-10">
+                <h3 class="mb-4">Danh Sách Sản Phẩm</h3>
+                <div class="row g-4">
+                    <!-- Product 1 -->
+                    <div class="col-md-6 col-lg-4 col-xl-3">
+                        <div class="card h-100">
+                            <img src="https://via.placeholder.com/300" class="card-img-top" alt="Sản phẩm 1">
+                            <div class="card-body">
+                                <h5 class="card-title">MBA Căn Bản</h5>
+                                <p class="card-text text-danger fw-bold">140.000đ <del class="text-secondary">189.000đ</del></p>
+                                <span class="badge bg-danger">-26%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Thêm các sản phẩm khác ở đây -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 ShopABC. Bảo lưu mọi quyền.</p>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="#" class="text-white">Chính Sách</a></li>
+                <li class="list-inline-item"><a href="#" class="text-white">Điều Khoản</a></li>
+                <li class="list-inline-item"><a href="#" class="text-white">Liên Hệ</a></li>
             </ul>
         </div>
+    </footer>
 
-                <!-- Danh sách sản phẩm -->
-            <section class="col-md-10">
-                <h3 class="mb-3">Danh Sách Sản Phẩm</h3>
-                <div class="row g-3">
-                    <!-- Sản phẩm -->
-                    <div class="col-6 col-md-4 col-lg-2">
-                        <a href="chitietsanpham.html?id=1" class="text-decoration-none">
-                            <div class="card h-100">
-                                <img src="path_to_image1.jpg" class="card-img-top" alt="Sản phẩm 1">
-                                <div class="card-body text-center">
-                                    <h5 class="card-title">MBA Căn Bản</h5>
-                                    <p class="text-danger fw-bold">140.000đ <del class="text-secondary">189.000đ</del></p>
-                                    <span class="badge bg-danger">-26%</span>
-                                </div>
-                            </div>
-                        </a>      
-                    </div>
-                    <div class="col-6 col-md-4 col-lg-2">
-                        <a href="chitietsanpham.html?id=1" class="text-decoration-none">
-                            <div class="card h-100">
-                                <img src="path_to_image1.jpg" class="card-img-top" alt="Sản phẩm 1">
-                                <div class="card-body text-center">
-                                    <h5 class="card-title">MBA Căn Bản</h5>
-                                    <p class="text-danger fw-bold">140.000đ <del class="text-secondary">189.000đ</del></p>
-                                    <span class="badge bg-danger">-26%</span>
-                                </div>
-                            </div>
-                        </a>      
-                    </div>
-                    <div class="col-6 col-md-4 col-lg-2">
-                        <a href="chitietsanpham.html?id=1" class="text-decoration-none">
-                            <div class="card h-100">
-                                <img src="path_to_image1.jpg" class="card-img-top" alt="Sản phẩm 1">
-                                <div class="card-body text-center">
-                                    <h5 class="card-title">MBA Căn Bản</h5>
-                                    <p class="text-danger fw-bold">140.000đ <del class="text-secondary">189.000đ</del></p>
-                                    <span class="badge bg-danger">-26%</span>
-                                </div>
-                            </div>
-                        </a>      
-                    </div>
-                    <div class="col-6 col-md-4 col-lg-2">
-                        <a href="chitietsanpham.html?id=1" class="text-decoration-none">
-                            <div class="card h-100">
-                                <img src="path_to_image1.jpg" class="card-img-top" alt="Sản phẩm 1">
-                                <div class="card-body text-center">
-                                    <h5 class="card-title">MBA Căn Bản</h5>
-                                    <p class="text-danger fw-bold">140.000đ <del class="text-secondary">189.000đ</del></p>
-                                    <span class="badge bg-danger">-26%</span>
-                                </div>
-                            </div>
-                        </a>      
-                    </div>
-                    <div class="col-6 col-md-4 col-lg-2">
-                        <a href="chitietsanpham.html?id=1" class="text-decoration-none">
-                            <div class="card h-100">
-                                <img src="path_to_image1.jpg" class="card-img-top" alt="Sản phẩm 1">
-                                <div class="card-body text-center">
-                                    <h5 class="card-title">MBA Căn Bản</h5>
-                                    <p class="text-danger fw-bold">140.000đ <del class="text-secondary">189.000đ</del></p>
-                                    <span class="badge bg-danger">-26%</span>
-                                </div>
-                            </div>
-                        </a>      
-                    </div>
-                    <div class="col-6 col-md-4 col-lg-2">
-                        <a href="chitietsanpham.html?id=1" class="text-decoration-none">
-                            <div class="card h-100">
-                                <img src="path_to_image1.jpg" class="card-img-top" alt="Sản phẩm 1">
-                                <div class="card-body text-center">
-                                    <h5 class="card-title">MBA Căn Bản</h5>
-                                    <p class="text-danger fw-bold">140.000đ <del class="text-secondary">189.000đ</del></p>
-                                    <span class="badge bg-danger">-26%</span>
-                                </div>
-                            </div>
-                        </a>      
-                    </div>
-                    <div class="col-6 col-md-4 col-lg-2">
-                        <a href="chitietsanpham.html?id=1" class="text-decoration-none">
-                            <div class="card h-100">
-                                <img src="path_to_image1.jpg" class="card-img-top" alt="Sản phẩm 1">
-                                <div class="card-body text-center">
-                                    <h5 class="card-title">MBA Căn Bản</h5>
-                                    <p class="text-danger fw-bold">140.000đ <del class="text-secondary">189.000đ</del></p>
-                                    <span class="badge bg-danger">-26%</span>
-                                </div>
-                            </div>
-                        </a>      
-                    </div>
-                    <div class="col-6 col-md-4 col-lg-2">
-                        <a href="chitietsanpham.html?id=1" class="text-decoration-none">
-                            <div class="card h-100">
-                                <img src="path_to_image1.jpg" class="card-img-top" alt="Sản phẩm 1">
-                                <div class="card-body text-center">
-                                    <h5 class="card-title">MBA Căn Bản</h5>
-                                    <p class="text-danger fw-bold">140.000đ <del class="text-secondary">189.000đ</del></p>
-                                    <span class="badge bg-danger">-26%</span>
-                                </div>
-                            </div>
-                        </a>      
-                    </div>
-                    <div class="col-6 col-md-4 col-lg-2">
-                        <a href="chitietsanpham.html?id=1" class="text-decoration-none">
-                            <div class="card h-100">
-                                <img src="path_to_image1.jpg" class="card-img-top" alt="Sản phẩm 1">
-                                <div class="card-body text-center">
-                                    <h5 class="card-title">MBA Căn Bản</h5>
-                                    <p class="text-danger fw-bold">140.000đ <del class="text-secondary">189.000đ</del></p>
-                                    <span class="badge bg-danger">-26%</span>
-                                </div>
-                            </div>
-                        </a>      
-                    </div>
-                    <div class="col-6 col-md-4 col-lg-2">
-                        <a href="chitietsanpham.html?id=1" class="text-decoration-none">
-                            <div class="card h-100">
-                                <img src="path_to_image1.jpg" class="card-img-top" alt="Sản phẩm 1">
-                                <div class="card-body text-center">
-                                    <h5 class="card-title">MBA Căn Bản</h5>
-                                    <p class="text-danger fw-bold">140.000đ <del class="text-secondary">189.000đ</del></p>
-                                    <span class="badge bg-danger">-26%</span>
-                                </div>
-                            </div>
-                        </a>      
-                    </div>
-                    <div class="col-6 col-md-4 col-lg-2">
-                        <a href="chitietsanpham.html?id=1" class="text-decoration-none">
-                            <div class="card h-100">
-                                <img src="path_to_image1.jpg" class="card-img-top" alt="Sản phẩm 1">
-                                <div class="card-body text-center">
-                                    <h5 class="card-title">MBA Căn Bản</h5>
-                                    <p class="text-danger fw-bold">140.000đ <del class="text-secondary">189.000đ</del></p>
-                                    <span class="badge bg-danger">-26%</span>
-                                </div>
-                            </div>
-                        </a>      
-                    </div>
-                    <div class="col-6 col-md-4 col-lg-2">
-                        <a href="chitietsanpham.html?id=1" class="text-decoration-none">
-                            <div class="card h-100">
-                                <img src="path_to_image1.jpg" class="card-img-top" alt="Sản phẩm 1">
-                                <div class="card-body text-center">
-                                    <h5 class="card-title">MBA Căn Bản</h5>
-                                    <p class="text-danger fw-bold">140.000đ <del class="text-secondary">189.000đ</del></p>
-                                    <span class="badge bg-danger">-26%</span>
-                                </div>
-                            </div>
-                        </a>      
-                    </div>
-                    <div class="col-6 col-md-4 col-lg-2">
-                        <a href="chitietsanpham.html?id=1" class="text-decoration-none">
-                            <div class="card h-100">
-                                <img src="path_to_image1.jpg" class="card-img-top" alt="Sản phẩm 1">
-                                <div class="card-body text-center">
-                                    <h5 class="card-title">MBA Căn Bản</h5>
-                                    <p class="text-danger fw-bold">140.000đ <del class="text-secondary">189.000đ</del></p>
-                                    <span class="badge bg-danger">-26%</span>
-                                </div>
-                            </div>
-                        </a>      
-                    </div>
-                    <div class="col-6 col-md-4 col-lg-2">
-                        <a href="chitietsanpham.html?id=1" class="text-decoration-none">
-                            <div class="card h-100">
-                                <img src="path_to_image1.jpg" class="card-img-top" alt="Sản phẩm 1">
-                                <div class="card-body text-center">
-                                    <h5 class="card-title">MBA Căn Bản</h5>
-                                    <p class="text-danger fw-bold">140.000đ <del class="text-secondary">189.000đ</del></p>
-                                    <span class="badge bg-danger">-26%</span>
-                                </div>
-                            </div>
-                        </a>      
-                    </div>
-                    <div class="col-6 col-md-4 col-lg-2">
-                        <a href="chitietsanpham.html?id=1" class="text-decoration-none">
-                            <div class="card h-100">
-                                <img src="path_to_image1.jpg" class="card-img-top" alt="Sản phẩm 1">
-                                <div class="card-body text-center">
-                                    <h5 class="card-title">MBA Căn Bản</h5>
-                                    <p class="text-danger fw-bold">140.000đ <del class="text-secondary">189.000đ</del></p>
-                                    <span class="badge bg-danger">-26%</span>
-                                </div>
-                            </div>
-                        </a>      
-                    </div>
-                    <div class="col-6 col-md-4 col-lg-2">
-                        <a href="chitietsanpham.html?id=1" class="text-decoration-none">
-                            <div class="card h-100">
-                                <img src="path_to_image1.jpg" class="card-img-top" alt="Sản phẩm 1">
-                                <div class="card-body text-center">
-                                    <h5 class="card-title">MBA Căn Bản</h5>
-                                    <p class="text-danger fw-bold">140.000đ <del class="text-secondary">189.000đ</del></p>
-                                    <span class="badge bg-danger">-26%</span>
-                                </div>
-                            </div>
-                        </a>      
-                    </div>
-                    <div class="col-6 col-md-4 col-lg-2">
-                        <a href="chitietsanpham.html?id=1" class="text-decoration-none">
-                            <div class="card h-100">
-                                <img src="path_to_image1.jpg" class="card-img-top" alt="Sản phẩm 1">
-                                <div class="card-body text-center">
-                                    <h5 class="card-title">MBA Căn Bản</h5>
-                                    <p class="text-danger fw-bold">140.000đ <del class="text-secondary">189.000đ</del></p>
-                                    <span class="badge bg-danger">-26%</span>
-                                </div>
-                            </div>
-                        </a>      
-                    </div>
-                    <div class="col-6 col-md-4 col-lg-2">
-                        <a href="chitietsanpham.html?id=1" class="text-decoration-none">
-                            <div class="card h-100">
-                                <img src="path_to_image1.jpg" class="card-img-top" alt="Sản phẩm 1">
-                                <div class="card-body text-center">
-                                    <h5 class="card-title">MBA Căn Bản</h5>
-                                    <p class="text-danger fw-bold">140.000đ <del class="text-secondary">189.000đ</del></p>
-                                    <span class="badge bg-danger">-26%</span>
-                                </div>
-                            </div>
-                        </a>      
-                    </div>
-                    <div class="col-6 col-md-4 col-lg-2">
-                        <a href="chitietsanpham.html?id=1" class="text-decoration-none">
-                            <div class="card h-100">
-                                <img src="path_to_image1.jpg" class="card-img-top" alt="Sản phẩm 1">
-                                <div class="card-body text-center">
-                                    <h5 class="card-title">MBA Căn Bản</h5>
-                                    <p class="text-danger fw-bold">140.000đ <del class="text-secondary">189.000đ</del></p>
-                                    <span class="badge bg-danger">-26%</span>
-                                </div>
-                            </div>
-                        </a>      
-                    </div>
-                    <div class="col-6 col-md-4 col-lg-2">
-                        <a href="chitietsanpham.html?id=1" class="text-decoration-none">
-                            <div class="card h-100">
-                                <img src="path_to_image1.jpg" class="card-img-top" alt="Sản phẩm 1">
-                                <div class="card-body text-center">
-                                    <h5 class="card-title">MBA Căn Bản</h5>
-                                    <p class="text-danger fw-bold">140.000đ <del class="text-secondary">189.000đ</del></p>
-                                    <span class="badge bg-danger">-26%</span>
-                                </div>
-                            </div>
-                        </a>      
-                    </div>
-                    
-                    <div class="col-6 col-md-4 col-lg-2">
-                        <a href="chitietsanpham.html?id=1" class="text-decoration-none">
-                            <div class="card h-100">
-                                <img src="path_to_image1.jpg" class="card-img-top" alt="Sản phẩm 1">
-                                <div class="card-body text-center">
-                                    <h5 class="card-title">MBA Căn Bản</h5>
-                                    <p class="text-danger fw-bold">140.000đ <del class="text-secondary">189.000đ</del></p>
-                                    <span class="badge bg-danger">-26%</span>
-                                </div>
-                            </div>
-                        </a>      
-                    </div>
-                    <div class="col-6 col-md-4 col-lg-2">
-                        <a href="chitietsanpham.html?id=1" class="text-decoration-none">
-                            <div class="card h-100">
-                                <img src="path_to_image1.jpg" class="card-img-top" alt="Sản phẩm 1">
-                                <div class="card-body text-center">
-                                    <h5 class="card-title">MBA Căn Bản</h5>
-                                    <p class="text-danger fw-bold">140.000đ <del class="text-secondary">189.000đ</del></p>
-                                    <span class="badge bg-danger">-26%</span>
-                                </div>
-                            </div>
-                        </a>      
-                    </div>
-                    <div class="col-6 col-md-4 col-lg-2">
-                        <a href="chitietsanpham.html?id=1" class="text-decoration-none">
-                            <div class="card h-100">
-                                <img src="path_to_image1.jpg" class="card-img-top" alt="Sản phẩm 1">
-                                <div class="card-body text-center">
-                                    <h5 class="card-title">MBA Căn Bản</h5>
-                                    <p class="text-danger fw-bold">140.000đ <del class="text-secondary">189.000đ</del></p>
-                                    <span class="badge bg-danger">-26%</span>
-                                </div>
-                            </div>
-                        </a>      
-                    </div>
-                    <div class="col-6 col-md-4 col-lg-2">
-                        <a href="chitietsanpham.html?id=1" class="text-decoration-none">
-                            <div class="card h-100">
-                                <img src="path_to_image1.jpg" class="card-img-top" alt="Sản phẩm 1">
-                                <div class="card-body text-center">
-                                    <h5 class="card-title">MBA Căn Bản</h5>
-                                    <p class="text-danger fw-bold">140.000đ <del class="text-secondary">189.000đ</del></p>
-                                    <span class="badge bg-danger">-26%</span>
-                                </div>
-                            </div>
-                        </a>      
-                    </div>
-                    <div class="col-6 col-md-4 col-lg-2">
-                        <a href="chitietsanpham.html?id=1" class="text-decoration-none">
-                            <div class="card h-100">
-                                <img src="path_to_image1.jpg" class="card-img-top" alt="Sản phẩm 1">
-                                <div class="card-body text-center">
-                                    <h5 class="card-title">MBA Căn Bản</h5>
-                                    <p class="text-danger fw-bold">140.000đ <del class="text-secondary">189.000đ</del></p>
-                                    <span class="badge bg-danger">-26%</span>
-                                </div>
-                            </div>
-                        </a>      
-                    </div>
-                    
-
-            </section>
-            </div>
-        </main>
-
-        <!-- Footer -->
-        <footer class="bg-dark text-white text-center py-3 mt-4">
-            © 2025 - Cửa Hàng Online
-        </footer>
-
-        <!-- Bootstrap JS -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    </body>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>
