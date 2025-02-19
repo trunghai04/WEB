@@ -1,0 +1,148 @@
+.sidebar .nav-link{
+    padding: 20px;
+    display: block;
+    color: black;
+}
+
+.sidebar {
+    height: 90vh; /* Giữ chiều cao hợp lý */
+    overflow-y: auto; /* Cho phép cuộn */
+    padding: 10px;
+    border-right: 1px solid #ddd;
+    position: sticky;
+    top: 70px; /* Đảm bảo không bị tràn khi cuộn trang */
+}
+
+
+.nav-link:hover{
+    background-color: chocolate;
+    border-radius: 5px;
+}
+.nav-item:hover{
+    background-color: rgb(182, 157, 148);
+    border-radius: 5px;
+
+}
+.logo-img {
+    position: relative;
+    right: 25px; /* Dịch sang phải 20px */
+}
+.nav-link {
+    display: flex;
+    align-items: center;
+    padding-left: 30px; /* Để có khoảng cách cho icon */
+    position: relative;
+}
+
+.card-img-top {
+    width: 100px; /* Điều chỉnh kích thước theo mong muốn */
+    height: auto; /* Giữ tỷ lệ ảnh */
+}
+
+* {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  /* Ảnh nền cho toàn bộ trang */
+  body {
+    background-image: url('https://images.pexels.com/photos/9969255/pexels-photo-9969255.jpeg?auto=compress&cs=tinysrgb&w=1200');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  /* Lớp phủ mờ trên ảnh nền */
+  body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1; /* Đảm bảo lớp phủ mờ dưới form */
+  }
+
+  /* Form đăng nhập */
+  .form-container {
+    width: 350px;
+    padding: 20px;
+    background-color: rgba(247, 247, 247, 0.8); /* Nền form mờ với độ mờ 0.8 */
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 2; /* Đảm bảo form hiển thị lên trên lớp phủ */
+    position: relative;
+  }
+
+  .form-control {
+    border-radius: 15px;
+  }
+
+  .button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    font-size: 14px;
+    border-radius: 25px;
+  }
+
+  .button:hover {
+    background-color: #0056b3;
+  }
+
+  /* Header */
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10; /* Đảm bảo header luôn ở trên cùng */
+    background-color: #007bff;
+  }
+
+  /* Navbar trong header */
+  .navbar {
+    padding: 10px 20px;
+  }
+
+  .navbar-nav .nav-link {
+    color: white !important;
+  }
+
+  /* Quên mật khẩu */
+  .forgot-password {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 12px;
+  }
+
+  .forgot-password a {
+    color: #007bff;
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    text-decoration: underline;
+  }
+
+  /* Dòng đăng ký */
+  .register-text {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+  }
+
+  .register-text a {
+    color: #007bff;
+    text-decoration: none;
+  }
+
+  .register-text a:hover {
+    text-decoration: underline;
+  }

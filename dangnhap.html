@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đăng nhập</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container-fluid">
+            <div class="row bg-primary">
+                <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+                    
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ml-auto ml-lg-0"> <!-- ml-auto giúp căn chỉnh các mục navbar sang bên phải -->
+                            <li class="nav-item">
+                                <a href="index.html" class="nav-link">Trang Chủ</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="thongbao.html" class="nav-link">Thông Báo</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="danhsachsanpham.html" class="nav-link">Danh Sách Sản Phẩm</a>
+                            </li>
+                         
+                        </ul>
+                        <a class="navbar-brand" href="#">
+                          <img src="./img/logotiki.png" class="img-fluid logo-img" alt="Logo " />
+                      </a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+  <div class="form-container">
+    <form>
+      <div class="form-group">
+        <input type="text" class="form-control" id="username" placeholder="Tên đăng nhập" required>
+      </div>
+      <div class="form-group">
+        <input type="password" class="form-control" id="password" placeholder="Mật khẩu" required>
+      </div>
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="remember-me">
+        <label class="form-check-label" for="remember-me">Nhớ mật khẩu</label>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block button">Đăng nhập</button>
+      <div class="forgot-password">
+        <a href="#">Quên mật khẩu?</a>
+      </div>
+      <div class="register-text">
+        Chưa có tài khoản? <a href="#">Đăng ký ngay</a>
+      </div>
+    </form>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
