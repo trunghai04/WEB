@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Trang Chủ</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <!-- Bootstrap CSS -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            crossorigin="anonymous"
+        />
+        <style>
+            /* Hiệu ứng hover cho navbar */
+            .nav-link:hover {
+                background-color: chocolate;
+                border-radius: 5px;
+            }
+            /* Sidebar menu */
+            .sidebar {
+                background-color: aliceblue;
+                padding: 15px;
+                min-height: 100vh;
+            }
+            .sidebar .nav-link {
+                padding: 10px;
+                display: block;
+                color: black;
+            }
+            .sidebar .nav-link:hover {
+                background-color: lightgray;
+                border-radius: 5px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <header>
+            <!-- Navbar -->
+            <div class="container-fluid">
+                <div class="row bg-primary">
+                    <nav class="navbar bg-primary navbar-dark">
+                        <ul class="navbar-nav flex-row">
+                            <li class="nav-item p-2"><a href="index.html" class="nav-link text-white">Trang Chủ</a></li>
+                            <li class="nav-item p-2"><a href="danhsach.html" class="nav-link text-white">Danh Sách Sản Phẩm</a></li>
+                            <li class="nav-item p-2"><a href="thongtin.html" class="nav-link text-white">Thông Tin</a></li>
+                            <li class="nav-item p-2"><a href="dangnhap.html" class="nav-link text-white">Đăng Nhập</a></li>
+                            <li class="nav-item p-2"><a href="dangky.html" class="nav-link text-white">Đăng Ký</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="row">
+                <!-- Sidebar -->
+                <div class="col-2 sidebar">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a href="#!" class="nav-link">SamSung</a></li>
+                        <li class="nav-item"><a href="#!" class="nav-link">SamSung 2</a></li>
+                        <li class="nav-item"><a href="#!" class="nav-link">SamSung 3</a></li>
+                        <li class="nav-item"><a href="#!" class="nav-link">SamSung 4</a></li>
+                        <li class="nav-item"><a href="#!" class="nav-link">SamSung 5</a></li>
+                    </ul>
+                </div>
+
+                <!-- Nội dung chính -->
+                <div class="col-10 bg-light p-4">
+                    <h2>Chào mừng đến với Trang Chủ</h2>
+                </div>
+            </div>
+        </main>
+
+        <footer class="text-center bg-primary text-white py-3 mt-4">
+            <h5 style="font-size: 20px;">&copy; 2025 - Website của tớ</h5>
+        </footer>
+
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>
